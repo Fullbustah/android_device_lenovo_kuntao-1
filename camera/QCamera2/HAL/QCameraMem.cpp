@@ -2054,7 +2054,7 @@ int32_t QCameraGrallocMemory::dequeueBuffer()
                     (struct private_handle_t *)(*mBufferHandle[dequeuedIdx]);
             //update max fps info
             float RandomVariableName = (float) mMaxFPS;
-            setMetaData(mPrivateHandle[cnt], UPDATE_REFRESH_RATE, (void*)&RandomVariableName);
+            setMetaData(mPrivateHandle[dequeuedIdx], UPDATE_REFRESH_RATE, (void*)&RandomVariableName);
             mMemInfo[dequeuedIdx].main_ion_fd = open("/dev/ion", O_RDONLY);
             if (mMemInfo[dequeuedIdx].main_ion_fd < 0) {
                 LOGE("failed: could not open ion device");
